@@ -1,0 +1,296 @@
+/* typography */
+html, body{
+  font-family: 'Karla', sans-serif;
+  color: #163B56;
+}
+html{
+  font-size: 62.5%; /* Source: https://gregrickaby.com/2013/05/using-the-golden-ratio-and-rems/ */
+}
+body{
+  font-size: 1.6rem;
+  line-height: 1.625; /* line-height-base (26) ÷ fontbase (16) */
+  /* Source: (for line-height-base) https://pearsonified.com/typography/ */
+}
+main, main button{
+  color: white;
+}
+h1,h2,h3,h4,a,button{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,h2,h3,h4{
+  line-height: 1.04;
+}
+h1{
+  font-size: 3rem;
+}
+h2{
+  font-size: 4.7rem;
+}
+h3,button{
+  font-size: 1.4rem;
+}
+h3{
+  line-height: 1.5;
+}
+h4{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+p{
+  font-size: 1.3rem;
+}
+section h3{
+  font-size: 3.0rem;
+  text-transform: capitalize;
+  padding-left: 12px;
+  /*margin-left: 0px !important;*/
+  /*max-width: 200px;*/
+}
+footer,footer a{
+  color: #163B56;
+  font-size: 1.4rem;
+}
+
+/* spacing */
+header > div{
+  padding: 0 !important;
+}
+#main-content{
+  padding: 12% 6% 25% 6%;
+}
+#main-content h3, #main-buttons button{
+  margin-left: 5px;
+}
+h1{
+  margin: 0;
+}
+h2{
+  margin-bottom: 1.2rem;
+}
+h3{
+  margin-bottom: 1.9rem;
+}
+section h3{
+  margin-bottom: 2rem;
+}
+header{
+  padding: 13px;
+}
+footer{
+  padding: 68px 15px;
+}
+button{
+  margin-right: 4px;
+}
+
+/* dimensions */
+body, html {
+  height: 100%;
+}
+header{
+  width: 100vw;
+}
+button{
+  height: 50px;
+  width: 187px;
+}
+#arrow-wrapper{
+  height: 87px;
+}
+section{
+  min-height: 420px;
+  width: 100%;
+}
+
+/* backgrounds, filters, borders */
+main.loaded{
+  background:
+    linear-gradient(to bottom, rgba(150,150,150,0.4),rgba(0,0,0,0.2) 50%),
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(5,5,5,0.2) 50%),
+    linear-gradient(to bottom, rgba(0,0,0,0), rgba(1,130,237,0.3) 50%),
+    url(../images/nyc_skyline_pulaski.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: contrast(160%);
+}
+/* Source: https://stackoverflow.com/questions/23990749/transition-between-background-color-and-background-image-css3 */
+main, section > .background-container.loaded{*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+section > .background-container:after{
+  content:'';
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:100%;
+  background: white;
+  opacity:1;
+  transition: opacity 3s;
+}
+section > .background-container.loaded.fade-in:after{
+  opacity:0;
+}
+header{
+  background-color: white;
+  /* Source: https://stackoverflow.com/questions/4561097/css-box-shadow-bottom-only */
+  box-shadow: 0 0 2px 2px #e8e8e8;
+}
+button{
+  background: transparent;
+  border: 2px solid white;
+  outline: 0;
+}
+
+/* icons */
+.fa-spin.loading{
+  display: block;
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: blue;
+  margin: 96px auto;
+}
+.scroll.arrow{
+  width: 9px;
+}
+.line.vertical {
+  height: 36px;
+  width: 3px;
+  background-color: white;
+}
+.triangle.down {
+  width: 7px;
+  height: 0;
+  border-top: 9px solid white;
+  border-right: 3px solid transparent;
+  border-left: 3px solid transparent;
+}
+header > nav .fa-bars{
+  font-size: 2.5rem;
+  padding: 6px 0 0 0;
+}
+
+/* state */
+#main-content{
+  display: none;
+}
+a:hover{
+  text-decoration: none;
+  color: blue;
+}
+button:hover{
+  border-color: darkgrey;
+}
+button:focus{
+  outline: 0;
+}
+button:active{
+  border-color: grey;
+  outline: 0;
+}
+.scroll.arrow:hover{
+  cursor: pointer;
+}
+.scroll.arrow:hover .line.vertical{
+  background-color: darkgrey;
+}
+.scroll.arrow:hover .triangle.down{
+  border-top: 9px solid darkgrey;
+}
+.scroll.arrow:active .line.vertical{
+  background-color: grey;
+}
+.scroll.arrow:active .triangle.down{
+  border-top: 9px solid grey;
+}
+.animation-overlay{
+  display: none;
+}
+
+/* positions */
+section div{
+  position: relative;
+}
+.fixed{
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+}
+.fixed.top{
+  top: 0;
+}
+.fixed.bottom{
+  bottom: 0;
+}
+#arrow-wrapper{
+  margin-top: -87px;
+}
+
+/* flexbox */
+section{
+  flex-direction: column !important;
+}
+#arrow-wrapper{
+  flex-direction: column;
+}
+.scroll.arrow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 3px;
+}
+
+/* responsive */
+@media (min-width: 768px){
+  #main-content{
+    padding: 21% 6%;
+  }
+}
+@media (min-width: 992px){
+     /* dimensions */
+     main{
+       height: 760px;
+     }
+     #main-content > h2{
+       margin-top: 30px;
+     }
+     #main-content h3{
+       max-width: 450px;
+     }
+
+     /* spacing */
+     header > div{
+       padding-left: 15px !important;
+       padding-right: 15px !important;
+     }
+     header > nav .fa-bars{
+       padding: 6px 16px 0 0;
+     }
+     #main-content{
+       /*padding: 255px 74px 0 68px !important;*/
+       /*padding: 255px 74px 0 68px !important;*/
+     }
+     section{
+       padding-top: 30px;
+     }
+     /* state */
+     .animation-overlay{
+       display: block;
+       opacity: 0;
+       width: 838px;
+       height: 629px;
+       border: 20px solid #163B56;
+       /*margin-right: 12px;*/
+     }
+}
+
+/* overrides, layering */
+body{
+  overflow-x: hidden;
+}
+header{
+  z-index: 999;
+}
